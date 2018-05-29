@@ -291,7 +291,7 @@ var RunPlugin_RunPlugin = function RunPlugin(md) {
 
     var hash = crypto_js_default.a.MD5(code).toString();
 
-    var click = '\n      var code = \'' + encodeURIComponent(code).replace(/'/g, '\\\'') + '\'\n      code = decodeURIComponent(code)\n      var resultDiv = this.parentElement.firstChild\n      resultDiv.innerHTML = \'\u8FD0\u884C\u4E2D\u2026\u2026\'\n\n      fetch(\'/api/run\', {\n        method: \'post\',\n        headers: {\n          \'Accept\': \'application/json\',\n          \'Content-Type\': \'application/json\'\n        },\n        body: JSON.stringify({language: \'' + token.info + '\', code: code})\n      }).then(res => {\n        res.json().then(result => {\n          if (result.status === \'ok\') {\n            localStorage.setItem(\'' + cachePrefix + hash + '\', result.data)\n            resultDiv.innerHTML = result.data\n          } else {\n            resultDiv.innerHTML = result.message\n          }\n        }).catch(e => {\n          resultDiv.innerHTML = e.message\n        })\n      }).catch(e => {\n        resultDiv.innerHTML = e.message\n      })\n    ';
+    var click = '\n      var code = \'' + encodeURIComponent(code).replace(/'/g, '\\\'') + '\'\n      code = decodeURIComponent(code)\n      var resultDiv = this.parentElement.firstChild\n      resultDiv.innerText = \'\u8FD0\u884C\u4E2D\u2026\u2026\'\n\n      fetch(\'/api/run\', {\n        method: \'post\',\n        headers: {\n          \'Accept\': \'application/json\',\n          \'Content-Type\': \'application/json\'\n        },\n        body: JSON.stringify({language: \'' + token.info + '\', code: code})\n      }).then(res => {\n        res.json().then(result => {\n          if (result.status === \'ok\') {\n            resultDiv.innerText = result.data\n            localStorage.setItem(\'' + cachePrefix + hash + '\', resultDiv.innerHTML)\n          } else {\n            resultDiv.innerText = result.message\n          }\n        }).catch(e => {\n          resultDiv.innerText = e.message\n        })\n      }).catch(e => {\n        resultDiv.innerText = e.message\n      })\n    ';
     var result = localStorage['' + cachePrefix + hash] || '';
 
     var resultDiv = '<div id="run-result-' + hash + '" style="position: relative;border-top: dashed 1px #888; padding: .5em 0; margin-top: 1.5em;"><div style="padding: .5em 0">' + result + '</div><button style="position: absolute; top: -.7em; height: 0; width: 0; border-left: .7em #b7b3b3 solid; border-top: .6em #dddddd00 solid; border-bottom: .6em #dddddd00 solid; border-right: 0; background: rgba(0, 0, 0, 0); cursor: pointer; outline: none" onclick="' + click + '"></button></div>';
@@ -1385,4 +1385,4 @@ webpackContext.id = "uslO";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.954193c23e6c26e481b3.js.map
+//# sourceMappingURL=app.6f8eb89afd21796297de.js.map
