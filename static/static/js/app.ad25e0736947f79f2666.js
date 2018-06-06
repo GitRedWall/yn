@@ -145,7 +145,13 @@ var vue_router_esm = __webpack_require__("/ocq");
         value: this.value,
         language: 'markdown',
         theme: 'vs-dark',
-        fontSize: '20'
+        fontSize: '20',
+        wordWrap: true,
+        // wordWrapColumn: 40,
+        // Set this to false to not auto word wrap minified files
+        wordWrapMinified: true,
+        // try "same", "indent" or "none"
+        wrappingIndent: 'same'
       });
 
       this.editor.onDidChangeModelContent(function (e) {
@@ -211,7 +217,7 @@ var vue_router_esm = __webpack_require__("/ocq");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-5f07bdf1","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/Editor.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1aab0286","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/Editor.vue
 var Editor_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"editor"}})}
 var Editor_staticRenderFns = []
 var Editor_esExports = { render: Editor_render, staticRenderFns: Editor_staticRenderFns }
@@ -1403,4 +1409,4 @@ webpackContext.id = "uslO";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.b3ba79cce91e699b069d.js.map
+//# sourceMappingURL=app.ad25e0736947f79f2666.js.map
