@@ -344,7 +344,7 @@ var crypto_js_default = /*#__PURE__*/__webpack_require__.n(crypto_js);
 
 
 
-var languages = ['php', 'python', 'js'];
+var languages = ['php', 'python', 'js', 'bash'];
 
 var cachePrefix = 'run_code_result_';
 
@@ -1590,4 +1590,4 @@ webpackContext.id = "uslO";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.581320e38cc473748679.js.map
+//# sourceMappingURL=app.7a07d817df4760feaaab.js.map
