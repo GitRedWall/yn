@@ -14,13 +14,6 @@ module.exports = {"Aacute":"Á","aacute":"á","Abreve":"Ă","abreve":"ă","ac":"
 
 /***/ }),
 
-/***/ "5NOt":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "6OIU":
 /***/ (function(module, exports) {
 
@@ -787,11 +780,15 @@ var file_decrypt = function decrypt(content) {
               throw e;
             }
           }
+        } else {
+          alert(result.message);
         }
       });
     });
   },
   write: function write(path, content, call, ecall) {
+    var isNew = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+
     try {
       if (path.endsWith('.c.md')) {
         content = file_encrypt(content);
@@ -807,11 +804,13 @@ var file_decrypt = function decrypt(content) {
     fetch('/api/file', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: stringify_default()({ path: path, content: content })
+      body: stringify_default()({ path: path, content: content, is_new: isNew })
     }).then(function (response) {
       response.json().then(function (result) {
         if (result.status === 'ok') {
           call(result);
+        } else {
+          alert(result.message);
         }
       });
     });
@@ -825,6 +824,8 @@ var file_decrypt = function decrypt(content) {
       response.json().then(function (result) {
         if (result.status === 'ok') {
           call(result);
+        } else {
+          alert(result.message);
         }
       });
     });
@@ -834,6 +835,8 @@ var file_decrypt = function decrypt(content) {
       response.json().then(function (result) {
         if (result.status === 'ok') {
           call(result.data);
+        } else {
+          alert(result.message);
         }
       });
     });
@@ -843,6 +846,8 @@ var file_decrypt = function decrypt(content) {
       response.json().then(function (result) {
         if (result.status === 'ok') {
           call(result);
+        } else {
+          alert(result.message);
         }
       });
     });
@@ -864,6 +869,8 @@ var file_decrypt = function decrypt(content) {
         response.json().then(function (result) {
           if (result.status === 'ok') {
             call(result.data);
+          } else {
+            alert(result.message);
           }
         });
       });
@@ -953,13 +960,6 @@ var file_decrypt = function decrypt(content) {
         return;
       }
 
-      if (this.item.children.find(function (x) {
-        return x.name === filename;
-      })) {
-        window.alert('目标目录有同名文件存在');
-        return;
-      }
-
       if (!filename.endsWith('.md')) {
         filename += '.md';
       }
@@ -969,7 +969,7 @@ var file_decrypt = function decrypt(content) {
         _this3.$emit('change', path);
       }, function (e) {
         alert(e.message);
-      });
+      }, true);
     },
     renameFile: function renameFile() {
       var _this4 = this;
@@ -1006,14 +1006,14 @@ var file_decrypt = function decrypt(content) {
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-439e20f5","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/TreeNode.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-32126bd1","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/TreeNode.vue
 var TreeNode_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tree-node"},[(_vm.item.type === 'dir')?_c('details',{ref:"dir",attrs:{"open":_vm.item.path === '/'}},[_c('summary',{style:({background: _vm.selected ? '#eee' : 'none'}),on:{"dblclick":function($event){_vm.createFile()},"contextmenu":[function($event){if(!$event.ctrlKey){ return null; }$event.preventDefault();_vm.renameFile($event)},function($event){if(!$event.shiftKey){ return null; }$event.preventDefault();_vm.deleteFile($event)}]}},[_vm._v(" "+_vm._s(_vm.item.name)+" ")]),_vm._v(" "),_vm._l((_vm.item.children),function(x){return _c('tree-node',{key:x.path,attrs:{"item":x,"slected-file":_vm.slectedFile},on:{"select":_vm.select,"move":function (p) { return _vm.$emit('move', p); },"change":function (p) { return _vm.$emit('change', p); },"delete":function (p) { return _vm.$emit('delete', p); }}})})],2):_c('div',{style:({background: _vm.selected ? '#53ddf3' : 'none'}),on:{"click":function($event){_vm.select(_vm.item)},"contextmenu":[function($event){if(!$event.ctrlKey){ return null; }$event.preventDefault();_vm.renameFile($event)},function($event){if(!$event.shiftKey){ return null; }$event.preventDefault();_vm.deleteFile($event)}]}},[_vm._v(" "+_vm._s(_vm.item.name)+" ")])])}
 var TreeNode_staticRenderFns = []
 var TreeNode_esExports = { render: TreeNode_render, staticRenderFns: TreeNode_staticRenderFns }
 /* harmony default export */ var components_TreeNode = (TreeNode_esExports);
 // CONCATENATED MODULE: ./src/components/TreeNode.vue
 function TreeNode_injectStyle (ssrContext) {
-  __webpack_require__("5NOt")
+  __webpack_require__("w2K8")
 }
 var TreeNode_normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -1026,7 +1026,7 @@ var TreeNode___vue_template_functional__ = false
 /* styles */
 var TreeNode___vue_styles__ = TreeNode_injectStyle
 /* scopeId */
-var TreeNode___vue_scopeId__ = "data-v-439e20f5"
+var TreeNode___vue_scopeId__ = "data-v-32126bd1"
 /* moduleIdentifier (server only) */
 var TreeNode___vue_module_identifier__ = null
 var TreeNode_Component = TreeNode_normalizeComponent(
@@ -1655,7 +1655,14 @@ webpackContext.id = "uslO";
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+
+/***/ "w2K8":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.a76e2ce22cdcb89a509f.js.map
+//# sourceMappingURL=app.06b83f4f341372d97217.js.map
